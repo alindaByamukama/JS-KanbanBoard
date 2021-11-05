@@ -21,9 +21,9 @@ const create_item = () => {
   let item = document.createElement('div');
   item.classList.add('item');
 
-  item.setAttribute("id", "item-" + order);
-  
-  item.setAttribute("draggable", "");
+// Note: Update myself on this method of setting attributes
+  item.id = "item-" + order;
+  item.draggable = true;
 
   item.addEventListener('dragstart', (event)=>{
     event.dataTransfer.setData('text', event.target.id)
@@ -40,7 +40,7 @@ const create_item = () => {
 
   save_btn.innerHTML = 'Save';
 
-  save_btn.addEventListener(click, ()=>{
+  save_btn.addEventListener('click', ()=>{
     error.innerHTML = "";
       if (input.value !== ""){
         order += 1;
